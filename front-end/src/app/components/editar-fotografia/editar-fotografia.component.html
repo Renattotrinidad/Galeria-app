@@ -1,0 +1,39 @@
+<div class="content">
+	<h2>Editar Fotografia</h2>
+	<form #editarFotoForm="ngForm" (ngSubmit)="editar()">
+		
+		<mat-form-field class="col-xs-12">
+			<input matInput type="text" name="nombre" #nombre="ngModel" [(ngModel)]="fotografia.fotografia" placeholder="Fotografia" autofocus required>
+			<mat-error *ngIf="nombre.invalid">El nombre de la fotografia es requerido</mat-error>
+		</mat-form-field>
+
+		<mat-form-field class="col-xs-12">
+			<input matInput type="text" name="descripcion" #descripcion="ngModel" [(ngModel)]="fotografia.descripcion" placeholder="Descripcion">
+		</mat-form-field>
+
+		<mat-form-field class="col-xs-12">
+			<input matInput type="text" name="autor" #autor="ngModel" [(ngModel)]="fotografia.autor" placeholder="Autor" required>
+			<mat-error *ngIf="autor.invalid">El autor de la fotografia es requerido</mat-error>
+		</mat-form-field>
+
+		<mat-form-field class="col-xs-12">
+			<input matInput type="text" name="numero" #numero="ngModel" [(ngModel)]="fotografia.numero" placeholder="Numero" required>
+			<mat-error *ngIf="numero.invalid">El numero de la fotografia es requerido</mat-error>
+		</mat-form-field>
+
+		<mat-form-field class="col-xs-12">
+			<input matInput type="text" disabled>
+			<input #file type="file" style="display:none" (change)="fileChangeEvent($event)">
+			<div>{{image_selected}}</div>
+			<button mat-mini-fab color="primary" matSuffix type="button" (click)="file.click()">
+				<mat-icon>attach_file</mat-icon>
+			</button>
+		</mat-form-field>
+
+		<mat-checkbox class="col-xs-12" color="primary" name="activo" [(ngModel)]="fotografia.activo">Activo</mat-checkbox>
+
+		<button [routerLink]="['/admin/list']" mat-raised-button class="btn" color="default" type="buttom">Cancelar</button>
+		<button [disabled]="!editarFotoForm.form.valid" mat-raised-button class="btn" color="primary" type="submit">Actualizar</button>
+
+	</form>
+</div>

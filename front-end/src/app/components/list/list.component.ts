@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FotografiasService } from '../../services/fotografias.service';
-import { AuthService } from '../../services/auth.service'
+import { AuthService } from '../../services/auth.service';
+import { Global } from '../../services/global';
 
 @Component({
   selector: 'app-list',
@@ -10,12 +11,14 @@ import { AuthService } from '../../services/auth.service'
 export class ListComponent implements OnInit {
 	public token:string;
 	public fotografias:any[];
+  public url:string;
 
   constructor(
   	private _serviceFotografias:FotografiasService,
   	private _auth:AuthService
   ) { 
-  	this._auth.getToken();
+  	this.token = this._auth.getToken();
+    this.url = Global.url;
   }
 
   ngOnInit() {
@@ -25,12 +28,10 @@ export class ListComponent implements OnInit {
   getFotografiasAdmin(){
   	this._serviceFotografias.getAllFotografias(this.token)
   	.then(response=>{
-  		/*this.fotografias = response.fotografias;
-      	console.log(this.fotografias);
+  		this.fotografias = response.fotografias;
   	})
   	.catch(error=>{
-  		console.log(error);*/
-      console.log(response);
+  		console.log(error);
   	});
   }
 

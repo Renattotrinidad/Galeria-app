@@ -96,9 +96,9 @@ function getImage(req,res){
 	var image = req.params.fotografia;
 	var thumb = req.params.thumb;
 
-	if (!thumb){
+	if (thumb == "false"){
 		var pathImage = './uploads/fotografias/' + image;	
-	}else{
+	}else if (thumb == "true"){
 		var pathImage = './uploads/fotografias/thumbs/' + image;
 	}
 
@@ -138,7 +138,19 @@ function getAllImage(req,res){
 		res.status(200).send({fotografias});
 	})
 	.catch(err=>{
-		res.status(404).send({message: "Problemas para obtener las fotografias."});
+		res.status(500).send({message: "Problemas para obtener las fotografias."});
+	});
+}
+
+function getImageById(req,res){
+	var id = req.params.id;
+
+	fotografias.findById(id)
+	.then(fotografia=>{
+		res.status(200).send({fotografia});
+	})
+	.catch(err=>{
+		res.status(500).send({message: "Problemas para obtener la fotografia."});
 	});
 }
 
@@ -148,5 +160,6 @@ module.exports = {
 	uploadImage,
 	getImage,
 	getActiveImage,
-	getAllImage
+	getAllImage,
+	getImageById
 }

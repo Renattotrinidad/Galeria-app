@@ -14,6 +14,10 @@ export class FotografiasService {
   		this.url = Global.url;
   	}
 
+    getFotografiasById(id:number):any{
+      return this._http.get(this.url + 'fotografia/'+ id).toPromise().then(res=>res);
+    }
+
   	getFotografias():any{
   		return this._http.get(this.url + 'fotografias').toPromise().then(res=>res);
   	}
@@ -21,5 +25,15 @@ export class FotografiasService {
     getAllFotografias(token:string):any{
       let headers:HttpHeaders = new HttpHeaders({'Authorization':token});
       return this._http.get(this.url + 'all-fotografias', {headers:headers}).toPromise().then(res=>res);
+    }
+
+    saveFotografias(fotografia:any, token:string):any{
+      let headers:HttpHeaders = new HttpHeaders({'Authorization':token});
+      return this._http.post(this.url + 'fotografia', fotografia, {headers:headers}).toPromise().then(res=>res);
+    }
+
+    updateFotografias(id:number, fotografia:any, token:string):any{
+      let headers:HttpHeaders = new HttpHeaders({'Authorization':token});
+      return this._http.put(this.url + 'fotografia/' + id, fotografia, {headers:headers}).toPromise().then(res=>res);
     }
 }

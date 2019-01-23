@@ -8,7 +8,8 @@ import {
   MatFormFieldModule, 
   MatInputModule, 
   MatButtonModule, 
-  MatIconModule
+  MatIconModule,
+  MatCheckboxModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { AppRouting } from './routes/routing';
 import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ListComponent } from './components/list/list.component';
+import { NuevaFotografiaComponent } from './components/nueva-fotografia/nueva-fotografia.component';
+import { EditarFotografiaComponent } from './components/editar-fotografia/editar-fotografia.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { ListComponent } from './components/list/list.component';
     HomeComponent,
     LoginComponent,
     AdminComponent,
-    ListComponent
+    ListComponent,
+    NuevaFotografiaComponent,
+    EditarFotografiaComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { ListComponent } from './components/list/list.component';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
