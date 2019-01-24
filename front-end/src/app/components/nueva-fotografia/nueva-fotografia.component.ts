@@ -11,12 +11,12 @@ import { UploadService } from '../../services/upload.service';
   styleUrls: ['./nueva-fotografia.component.css']
 })
 export class NuevaFotografiaComponent implements OnInit {
-	public fotografia:any=[];
+	public fotografia:any={};
 	public token:string;
 	public identity:any;
 	public url:string;
   public filesToUpload:Array<File>;
-  public image_select:string;
+  public image_selected:string;
 
   constructor(
   	private _serviceFotografias:FotografiasService,
@@ -33,7 +33,7 @@ export class NuevaFotografiaComponent implements OnInit {
   }
 
   agregar(){
-    this.fotografia.usaurio_creacion = this._auth.getIdentity().usuario;
+    this.fotografia.usuarioCreacion = this._auth.getIdentity().usuario;
     this._serviceFotografias.saveFotografias(this.fotografia, this.token)
         .then(response=>{
 
@@ -56,7 +56,7 @@ export class NuevaFotografiaComponent implements OnInit {
 
   fileChangeEvent(fileInput:any){
     this.filesToUpload=fileInput.target.files.length>0?<Array<File>>fileInput.target.files:null;
-    this.image_select=this.filesToUpload?fileInput.target.files[0].name:'';
+    this.image_selected=this.filesToUpload?fileInput.target.files[0].name:'';
   }
 
 

@@ -9,7 +9,7 @@ import { EditarFotografiaComponent } from '../components/editar-fotografia/edita
 import { GuardService} from '../services/guard.service';
 
 const app_routes: Routes=[
-	{path: 'home', component: HomeComponent},
+	{path: 'home/:num', component: HomeComponent},
 	{path: 'admin', component: AdminComponent, canActivate:[GuardService], 
 		children:[
 			{path: 'list', component: ListComponent},

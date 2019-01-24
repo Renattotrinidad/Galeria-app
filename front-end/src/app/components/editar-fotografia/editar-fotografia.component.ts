@@ -62,6 +62,8 @@ export class EditarFotografiaComponent implements OnInit {
                   this._router.navigate(['/admin/list']);
                   console.log(err);
                 });
+          }else{
+            this._router.navigate(['/admin/list']);
           }
 
         })

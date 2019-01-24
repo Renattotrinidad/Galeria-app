@@ -1,3 +1,27 @@
-<div *ngFor= "let fotografia of fotografias">
-	{{fotografia.fotografia}} - {{fotografia.descripcion}}
+<div class="content-home">
+	<div class="fotografia" *ngFor= "let fotografia of fotografias">
+		<div class="fotografia-item" [style.background-image]="'url('+ url +'fotografia/'+ fotografia.imagen + '/false)'">
+			<div class="data-fotografia">
+				{{fotografia.fotografia}}
+			</div>
+
+			<div class="leer-mas">
+				<div class="leer-mas-btn">
+					<mat-icon>add</mat-icon>
+				</div>
+				<div class="txt-leer-mas">Leer Más</div>
+				<div class="linea-inferior"></div>
+				<div class="login" [routerLink]="['/login']">Login</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<div class="content-flechas-nav">
+	<div class="move-left" *ngIf="seleccion.anterior" [routerLink]="['/home',seleccion.anterior]">
+		<mat-icon>keyboard_arrow_left</mat-icon>
+	</div>
+	<div class="move-right" *ngIf="seleccion.siguiente" [routerLink]="['/home',seleccion.siguiente]">
+		<mat-icon>keyboard_arrow_right</mat-icon>
+	</div>
 </div>
