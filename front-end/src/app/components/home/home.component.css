@@ -27,7 +27,7 @@
 	left: 80px;
 	bottom: 120px;
 	right: 0px;
-	color: #fff;
+	color: rgb(15,70,216);
 	z-index: 3;
 	font-size: 40px;
 	max-width: 500px;
@@ -45,7 +45,7 @@
 .leer-mas-btn{
 	width: 34px;
 	height: 34px;
-	border: 1px solid #fff;
+	border: 1px solid rgb(15,70,216);
 	border-radius: 50%;
 	display: flex;
 	cursor: pointer;
@@ -55,13 +55,13 @@
 	font-size: 24px;
 	width: 24px;
 	height: 24px;
-	color: #fff;
+	color: rgb(15,70,216);
 	margin: auto;
 }
 
 .txt-leer-mas{
 	margin: auto 15px;
-	color: #fff;
+	color: rgb(15,70,216);
 }
 
 .linea-inferior{
@@ -71,14 +71,14 @@
 	left: 120px;
 	top: 18px;
 	right: 100px;
-	background: #fff;
+	background: rgb(15,70,216);
 }
 
 .login{
 	position: absolute;
 	right: 60px;
 	top: 8px;
-	color: #fff;
+	color: rgb(15,70,216);
 	cursor: pointer;
 	transition: all .2s linear;
 }
@@ -111,6 +111,7 @@
 	color: rgb(15,70,216);
 	transition: all .2s linear;
 	position: absolute;
+	outline: none;
 }
 
 .content-flechas-nav div:hover{
@@ -125,17 +126,99 @@
 	right: 10px;
 }
 
+.ver-mas{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	background: rgba(30,30,30,0.8);
+	z-index: 6;
+}
+
+.ver-mas-detalle{
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	transform: translateY(-50%);
+	font-size: 10px;
+	color: rgb(15,70,216);;
+	z-index: 7;
+	display: flex;
+	flex-direction: column;
+}
+
+.ver-mas-nombre{
+	font-size: 6em;
+	color: #fff;
+}
+
+.ver-mas-descripcion{
+	margin-top: 10px;
+	font-size: 2.5em;
+	color: #fff;
+}
+
+.ver-mas-autor{
+	margin-top: 20px;
+	font-size: 1.5em;
+	color: #fff;	
+}
+
+.ver-mas-compartir{
+	margin-top: 30px;
+	display: flex;
+	flex-direction: row;
+}
+
+.compartir *{
+	margin: 3px;
+}
+
+.compartir div{
+	color: #fff;
+	cursor: pointer;
+	transition: all .2s linear;
+}
+
+.compartir div:hover{
+	transform: scale(1.2);
+}
 
 
+/* THUMBS */
 
+.show-thumbs{
+	position: absolute;
+	right: 30px;
+	top: 20px;
+	cursor: pointer;
+	z-index: 6;
+	color: #fff;
+	background: #333;
+	display: flex;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
 
+.show-thumbs mat-icon{
+	font-size: 30px;
+	width: 30px;
+	height: 30px;
+	margin:auto;
+}
 
-
-
-
-
-
-
+.content-thumbs{
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow-y: scroll;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 10px;
+}
 
 
 

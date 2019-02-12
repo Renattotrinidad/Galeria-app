@@ -1,12 +1,15 @@
 <div class="content-home">
 	<div class="fotografia" *ngFor= "let fotografia of fotografias">
-		<div class="fotografia-item" [style.background-image]="'url('+ url +'fotografia/'+ fotografia.imagen + '/false)'">
-			<div class="data-fotografia">
+		<div class="fotografia-item"  
+			[@mover-fotografias]="direccion"
+			*ngIf="seleccion.fotografia.numero == fotografia.numero"
+			[style.background-image]="'url('+ url +'fotografia/'+ fotografia.imagen + '/false)'">
+			<div class="data-fotografia" *ngIf="!verMas">
 				{{fotografia.fotografia}}
 			</div>
 
 			<div class="leer-mas">
-				<div class="leer-mas-btn">
+				<div class="leer-mas-btn" (click)="verMas=!verMas">
 					<mat-icon>add</mat-icon>
 				</div>
 				<div class="txt-leer-mas">Leer Más</div>
@@ -24,4 +27,31 @@
 	<div class="move-right" *ngIf="seleccion.siguiente" [routerLink]="['/home',seleccion.siguiente]">
 		<mat-icon>keyboard_arrow_right</mat-icon>
 	</div>
+</div>
+
+<div class="ver-mas" *ngIf="verMas" (click)="verMas=!verMas">
+	<div class="ver-mas-detalle col-lg-6 col-med-6 col-xs-10">
+		<div class="ver-mas-nombre">{{seleccion.fotografia.fotografia}}</div>
+		<div class="ver-mas-descripcion">{{seleccion.fotografia.descripcion}}</div>
+		<div class="ver-mas-autor">{{seleccion.fotografia.autor}}</div>
+		<div class="compartir">
+			<div class="twitter">
+				Twitter
+			</div>
+			<div class="facebook">
+				Facebook
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Thumbs -->
+
+<div class="show-thumbs" (click)="showThumbs = !showThumbs">
+	<mat-icon *ngIf="!showThumbs">menu</mat-icon>
+	<mat-icon *ngIf="showThumbs">close</mat-icon>
+</div>
+
+<div class="content-thumbs" *ngIf="showThumbs">
+	
 </div>
